@@ -1,0 +1,57 @@
+
+<html ng-app="paymentApp">
+	<head>
+		<title>Payment mode</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<!-- angular min file -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> -->
+		<link rel="stylesheet" href="CSS\font-awesome-4.7.0\css\font-awesome.min.css">
+		<script src="JS/module.js"></script>
+		<script src="JS/modal.directive.js"></script>
+		<script src="JS/first-section.directive.js"></script>
+		<script src="JS/second-section.directive.js"></script>
+		<script src="JS/first-footer.directive.js"></script>
+		<script src="JS/second-footer.directive.js"></script>
+		<script src="JS/controller.js"></script>
+		<script src="JS/service.js"></script>
+		<link rel="stylesheet" href="CSS/style.css">
+		<link rel="stylesheet" href="CSS/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+		<script src="CSS/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+
+	</head>
+ 	<body ng-controller="mainCtrl">
+		<div class="container-fluid" id="table">
+			<!-- outer table -->
+			<!-- table heading -->
+			<div class=" col-md-12 col-lg-12">
+				<div class=" col-md-12 col-lg-12 header-div" >
+				<div class="col-md-3 col-lg-2"></div>
+				<div class="col-md-3 col-lg-2 ">Frequency Type</div>
+				<div class="col-md-2 col-lg-2">Start Date</div>
+				<div class="col-md-2 col-lg-2 ">End Date</div>
+				<div class="col-md-2 col-lg-2"  >Total Cash with Tax</div>
+				<div class="col-md-2 col-lg-2">Actions</div>
+			</div>
+			<div class=" col-md-12 col-lg-12 " ng-repeat="mydetails in myDetails" >
+				<div class="col-md-3 col-lg-3">{{mydetails.typeOfPayment}}</div>
+				<div class="col-md-1 col-lg-1 offset-md-8"><i class="fa fa-angle-right"  aria-hidden="true" ng-click="show=!show"></i></div>
+			</div>
+
+			<button type="button" class="btn btn-success btn-lg col-md-12 col-lg-12 footer-div btn-text" data-toggle="modal" data-target="#gridSystemModal">
+				+Add
+			</button>
+			</div>
+			<!-- table data -->
+ 		</div>
+			<modal-dir></modal-dir>
+			</div>
+  </body>
+
+</html>

@@ -1,0 +1,113 @@
+<div class="form-group col-lg-6">
+  <label for="exampleSelect1">Payment Type<sup class="mandatory-icon">*</sup></label>
+  <div class="main-input">
+  <span><input class="form-control input-field" type="text" placeholder="select" ng-model="details.typeOfPayment" ></span>
+  <button class="btn btn-secondary fa fa-angle-down icon-span" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </button>
+  <div class="dropdown-menu list-dropdown">
+    <input type="text" placeholder="select" ng-model="test1">
+    <p ng-repeat="paymenttype in paymentType | filter:test1 track by $index" ng-click="selectPaymentType(paymenttype)">{{paymenttype}}</p>
+
+  </div>
+</div>
+</div>
+
+<div class="form-group col-lg-6">
+  <label for="exampleSelect1">Accounting Type<sup class="mandatory-icon">*</sup></label>
+  <div class="main-input">
+  <span><input class="form-control input-field" type="text" placeholder="select" ng-model="details.accountType"></span>
+  <button class="btn btn-secondary fa fa-angle-down icon-span" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </button>
+  <div class="dropdown-menu list-dropdown">
+    <input type="text" placeholder="select" ng-model="test2">
+    <p ng-repeat="AccountingType in accountingType | filter:test2 track by $index" ng-click="selectAccountType(AccountingType)">{{AccountingType}}</p>
+
+  </div>
+</div>
+</div>
+
+<div class="form-group col-lg-4">
+  <label for="exampleSelect1">Frequency<sup class="mandatory-icon">*</sup></label>
+  <div class="main-input">
+  <span><input class="form-control input-field" type="text" placeholder="select" ng-model="details.typeOffrequency"></span>
+  <button class="btn btn-secondary fa fa-angle-down icon-span" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </button>
+  <div class="dropdown-menu list-dropdown">
+    <input type="text" placeholder="select" ng-model="test3">
+    <p ng-repeat="FrequencyType in frequencyType | filter:test3 track by $index" ng-click="selectfrequencyType(FrequencyType)">{{FrequencyType}}</p>
+
+  </div>
+</div>
+</div>
+
+<div class="form-group col-lg-4">
+  <label for="exampleInputPassword1">Period Start Date<sup class="mandatory-icon">*</sup></label>
+  <div class="main-input" id="sandbox-container">
+  <span><input class="form-control input-field" type="date"  ng-model="details.periodStartDate"></span>
+  <button class="btn btn-secondary fa fa-calendar-o icon-span" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+  </button>
+</div>
+</div>
+
+<div class="form-group col-lg-4">
+  <label for="exampleSelect1">Payment Timing<sup class="mandatory-icon">*</sup></label>
+  <div class="main-input">
+  <span><input class="form-control input-field" type="text" placeholder="select" ng-model="details.paymentTime"></span>
+  <button class="btn btn-secondary fa fa-angle-down icon-span" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </button>
+  <div class="dropdown-menu list-dropdown">
+    <input type="text" placeholder="select" ng-model="test4">
+    <p ng-repeat="PaymentTiming in paymentTiming | filter:test4 track by $index" ng-click="selectpaymentTiming(paymentTiming)">{{PaymentTiming}}</p>
+
+  </div>
+</div>
+</div>
+
+
+<div class="form-group col-lg-4">
+  <label for="exampleSelect1">Payment Due On<sup class="mandatory-icon">*</sup></label>
+  <div class="main-input">
+  <span><input class="form-control input-field" type="text" placeholder="select" ng-model="details.paymentDueDate"></span>
+  <button class="btn btn-secondary fa fa-angle-down icon-span" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </button>
+  <div class="dropdown-menu list-dropdown">
+    <input type="text" placeholder="select" ng-model="test5">
+    <p ng-repeat="PaymentDue in paymentDue | filter:test5 track by $index" ng-click="selectpaymentDue(PaymentDue)">{{PaymentDue}}</p>
+
+  </div>
+</div>
+</div>
+
+
+
+<div class="form-group col-lg-4">
+  <label for="exampleSelect1">Payment Due Day<sup class="mandatory-icon">*</sup></label>
+  <div class="main-input">
+  <span><input class="form-control input-field" type="text" placeholder="select" ng-model="details.paymentDueday"></span>
+  <button class="btn btn-secondary fa fa-angle-down icon-span" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </button>
+  <div class="dropdown-menu list-dropdown">
+    <input type="text" placeholder="select" ng-model="test6">
+    <p ng-repeat="PaymentDueDay in paymentDueDay | filter:test6 track by $index" ng-click="selectpaymentDueDay(PaymentDueDay)">{{PaymentDueDay}}</p>
+
+  </div>
+</div>
+</div>
+
+
+<div class="form-group col-lg-4">
+  <label for="exampleSelect1">Accounting Cost Center</label>
+  <input class="form-control" type="text" placeholder="0" ng-model="details.accountingCost">
+</div>
+
+<div class="form-check col-lg-12">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input">
+    option Term Payment
+  </label>
+</div>
+
+<div class="form-group col-lg-12">
+  <label for="exampleTextarea">Description</label>
+  <textarea class="form-control" id="exampleTextarea" rows="2" ng-model="details.description"></textarea>
+</div>

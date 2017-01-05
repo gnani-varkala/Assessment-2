@@ -1,0 +1,67 @@
+<div class="form-group col-lg-6">
+  <label for="exampleSelect1">Growth Type</label>
+  <div class="main-input">
+  <span><input class="form-control input-field" type="text" placeholder="select" ng-model="details.typeOfGrowth"></span>
+  <button class="btn btn-secondary fa fa-angle-down icon-span" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </button>
+  <div class="dropdown-menu list-dropdown">
+    <input type="text" placeholder="select" ng-model="test7">
+    <p ng-repeat="growthtype in growthType | filter:test7 track by $index" ng-click="selectGrowthType(growthtype)">{{growthtype}}</p>
+
+  </div>
+</div>
+</div>
+
+<div class="form-group col-lg-6">
+  <label for="exampleSelect1">Fixed Growth</label>
+  <div class="main-input">
+  <span><input class="form-control input-field" type="text" placeholder="0" ng-model="details.fixedGrowth"></span>
+  
+</div>
+</div>
+
+<div class="form-group col-lg-6">
+  <label for="exampleSelect1">Number Of Schedules</label>
+  <div class="main-input">
+  <span><input class="form-control input-field" type="text" placeholder="0" ng-model="details.noOfSchedules"></span>
+  
+</div>
+</div>
+
+<div class="form-group col-lg-6">
+  <label for="exampleSelect1">Adjust Every (X) Month</label>
+  <div class="main-input">
+  <span><input class="form-control input-field" type="text" placeholder="0" ng-model="details.adjustMonth"></span>
+  
+</div>
+</div>
+
+<div class="form-group col-lg-4">
+  <label for="exampleSelect1">Charge Amount Basis<sup class="mandatory-icon">*</sup></label>
+  <div class="main-input">
+  <span><input class="form-control input-field" type="text"  ng-model="details.basisAmount"></span>
+  <button class="btn btn-secondary fa fa-angle-down icon-span" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  </button>
+  <div class="dropdown-menu list-dropdown">
+    <input type="text" placeholder="select" ng-model="test8">
+    <p ng-repeat="AmountBasis in amountBasis | filter:test8 track by $index" ng-click="selectAmountBasis(AmountBasis)">{{AmountBasis}}</p>
+
+  </div>
+</div>
+</div>
+
+
+<div class="form-group col-lg-2">
+  <label for="exampleSelect1">Contract Rentable<sup class="mandatory-icon">*</sup></label>
+  <div class="main-input">
+  <span><input class="form-control input-field" type="text" placeholder="0" ng-model="details.contractRentable"></span>
+</div>
+</div>
+<div class="col-lg-2">Square Feet</div>
+
+
+
+<div class="form-group col-lg-4">
+  <label for="exampleSelect1">Accounting Per Basis</label>
+  <input class="form-control" type="text" placeholder="0" ng-model="details.amountBasis">
+</div>

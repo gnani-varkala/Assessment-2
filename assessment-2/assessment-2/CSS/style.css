@@ -1,0 +1,59 @@
+*{
+  font-size: 14px;
+}
+
+.header-div{
+  background:rgb(234,234,234);
+  height:60px;
+}
+
+.footer-div{
+  background: rgb(229,243,226);
+  height:45px;
+  text-align: center;
+  border:1px solid rgb(229,243,226);
+}
+.main-modal{
+  height:350px;
+  overflow-y: scroll;
+}
+
+.main-input{
+  border:1px solid #d9d9d9;
+  border-radius: 5px;
+}
+.input-field{
+  width: 90%;
+  border:none
+}
+
+.icon-span{
+  width:10%;
+  float:right;
+  position: relative;
+  top: -35px;
+  border: none;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.list-dropdown{
+  margin-top: -30px;
+    margin-left: 15px;
+    width: 89%;
+    height: 100px;
+    overflow-y: scroll;
+}
+.datepicker-orient-bottom{
+  margin-left: -115px !important;
+  margin-top: 234px !important;
+}
+
+.mandatory-icon{
+  color: red;
+}
+.btn-text{
+  color: black;
+}

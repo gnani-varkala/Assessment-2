@@ -1,0 +1,29 @@
+
+		<div id="gridSystemModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="gridModalLabel" ng-bind="fstSection?'Payment Information':'Payment Parameter'"></h4>
+			      </div>
+			      <div class="modal-body main-modal">
+			      <form name="form">
+			        <div ng-if="fstSection" class="container-fluid bd-example-row">
+								<first-section-dir></first-section-dir>
+			        </div>
+							<div ng-if="!fstSection" class="container-fluid bd-example-row">
+								<second-section-dir></second-section-dir>
+							</div>
+			      </div>
+
+			      <div class="modal-footer">
+							<div ng-show="fstSection" class="container-fluid bd-example-row">
+								<first-footer-dir></first-footer-dir>
+			        </div>
+							<div ng-show="!fstSection" class="container-fluid bd-example-row">
+								<second-footer-dir></second-footer-dir>
+							</div>
+			      </div>
+			    </div>
+			  </div>
+			</div>
