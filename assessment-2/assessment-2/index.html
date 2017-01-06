@@ -19,6 +19,7 @@
 		<script src="JS/first-footer.directive.js"></script>
 		<script src="JS/second-footer.directive.js"></script>
 		<script src="JS/deleteAlert.directive.js"></script>
+		<script src="JS/saveWarning.directive.js"></script>
 		<script src="JS/controller.js"></script>
 		<script src="JS/service.js"></script>
 		<link rel="stylesheet" href="CSS/style.css">
@@ -42,21 +43,22 @@
 			</div>
 
 
-			<div class=" col-md-12 col-lg-12 " ng-repeat="mydetails in myDetails track by $index" >
-				<div class="col-md-3 col-lg-3">{{mydetails.typeOfPayment}}</div>
+			<div class=" col-md-12 col-lg-12 outer-table" ng-repeat="mydetails in myDetails" >
+				<div class="col-md-3 col-lg-3">{{mydetails.payType}}</div>
 				<div class="col-md-1 col-lg-1 offset-md-8"><i  ng-click="show = !show" ng-class="{'fa fa-angle-down': show, 'fa fa-angle-right': !show }"  aria-hidden="true"></i></div>
 
 				<div class=" col-md-12 col-lg-12 " ng-show="show">
+					<div class=" col-md-12 col-lg-12 inner-table"  ng-repeat ="data in mydetails.data" >
 					<div class="col-md-2 col-lg-2"><i class="fa fa-hourglass-half" aria-hidden="true"></i></div>
-					<div class="col-md-2 col-lg-2 ">{{mydetails.typeOffrequency}}</div>
-					<div class="col-md-2 col-lg-2 ">{{mydetails.periodStartDate}}</div>
-					<div class="col-md-2 col-lg-2 "></div>
-					<div class="col-md-2 col-lg-2 "></div>
+					<div class="col-md-2 col-lg-2 ">{{data.typeOffrequency}}</div>
+					<div class="col-md-2 col-lg-2 ">{{data.periodStartDate| date:"MM/dd/yyyy"}}</div>
+					<div class="col-md-2 col-lg-2 ">2/10/2017</div>
+					<div class="col-md-2 col-lg-2 ">0.00</div>
 					<div class="col-md-2 col-lg-2 ">
-						<i class="col-md-6 col-lg-6 fa fa-pencil" aria-hidden="true" ng-click="edit(mydetails)"></i>
-						<i class="col-md-6 col-lg-6 fa fa-times" aria-hidden="true" ng-click="delete($index)"></i>
+						<i class="col-md-6 col-lg-6 fa fa-pencil" aria-hidden="true" ng-click="edit($parent.$index,$index)"></i>
+						<i class="col-md-6 col-lg-6 fa fa-times" aria-hidden="true" ng-click="delete($parent.$index,$index)"></i>
 					</div>
-
+				</div>
 			</div>
 
 
@@ -68,6 +70,7 @@
  		</div>
 			<modal-dir></modal-dir>
 			<delete-dir></delete-dir>
+			<save-warning-dir></save-warning-dir>
 			</div>
   </body>
 

@@ -57,3 +57,61 @@
 .btn-text{
   color: black;
 }
+.icon-color{
+  color: blue;
+}
+
+.outer-table{
+  height:auto;
+  padding: 10px 10px;
+  font-size: 16px;
+  border-bottom: 1px solid black;
+}
+
+.inner-table{
+  height:auto;
+  padding: 10px 10px;
+  font-size: 16px;
+  border-top: 1px solid black;
+}
+
+
+.search-field{
+  width: 100%;
+    height: 34px;
+    border-radius: 5px;
+}
+
+.modal-main-div{
+  margin-left: 131px;
+}
+.main-content{
+  width:762px;
+}
+
+ .btn-class:focus{
+   border: none;
+   background: transparent;
+   outline: none;
+ }
+
+ .btn-class:hover{
+   border: none;
+   background: transparent;
+   outline: none;
+ }
+
+ .btn-class:active{
+   border: none;
+   background: transparent !important;
+   outline: none !important;
+ }
+
+.modal-border-none{
+  border: none;
+}
+
+
+.error .ng-invalid {
+        border-color: #a94442;
+    }

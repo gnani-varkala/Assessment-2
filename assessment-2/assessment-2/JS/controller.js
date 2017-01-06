@@ -8,7 +8,14 @@
     mainCtrl.$inject = ['$scope', 'jsonService'];
 
     function mainCtrl($scope, jsonService) {
+
+      $('#dateRangePicker')
+            .datepicker({
+               format: 'mm/dd/yyyy',
+            })
+
         var paymentDetails = [];
+        $scope.display = false;
         $scope.myDetails = [];
         $scope.fstSection = true;
         $scope.paymentType = [];
@@ -60,6 +67,12 @@
         });
         $scope.selectfrequencyType = function(type) {
             $scope.details.typeOffrequency = type;
+            if(type == "Other"){
+              $scope.display=true;
+            }
+            else{
+              $scope.display=false;
+            }
         }
 
 
@@ -118,39 +131,100 @@
             $scope.details.basisAmount = type;
         }
 
-        // $scope.firstPage=function(){
-        //   $scope.fstSection=false;
-        // }
+
 
         $scope.generate = function(details) {
-            $scope.myDetails.push(details);
+            var flagCheck =false;
+            var index = -1;
+
+            for(var i=0;i<$scope.myDetails.length;i++){
+              if($scope.myDetails[i].payType == details.typeOfPayment){
+                flagCheck=true;
+                index = i;
+                break;
+              }
+            }
+            if(flagCheck){
+              $scope.myDetails[index].data.push(angular.copy(details));
+            }else{
+              var payDetails ={};
+              payDetails.payType=details.typeOfPayment;
+              payDetails.data = [];
+              payDetails.data.push(angular.copy(details));
+              $scope.myDetails.push(payDetails)
+
+            }
+
             $scope.details = {};
             $('#gridSystemModal').modal('hide');
             $scope.fstSection=true;
         }
 
-        $scope.delete = function(index){
+        $scope.delete = function(parent,index){
           $scope.newIndex = index;
+          $scope.newParent = parent;
           $('#new-modal').modal('show');
         }
         $scope.deleteConform = function(){
-          $scope.myDetails.splice($scope.newIndex,1);
+          $scope.myDetails[$scope.newParent].data.splice($scope.newIndex,1);
           $('#new-modal').modal('hide');
         }
         var x;
-        $scope.edit=function(editDetails,index){
+        $scope.edit=function(parent,index){
+
+          console.log($scope.myDetails);
           $scope.saveShow = false;
           $('#gridSystemModal').modal('show');
-          $scope.details = editDetails;
-          $scope.index= index
+          $scope.details = angular.copy($scope.myDetails[parent].data[index]);
+          $scope.parentIndex= parent;
+          $scope.index=index;
         }
 
-        $scope.save =function(details){
-          var editedDetails = angular.copy(details);
-          $scope.myDetails[$scope.index] = editedDetails;
+        $scope.save =function(){
+          var editedDetails = angular.copy($scope.details);
+          $scope.myDetails[$scope.parentIndex].data[$scope.index] = editedDetails;
           $('#gridSystemModal').modal('hide');
-
-          $scope.saveShow = false;
+          $scope.details = {};
+          $scope.saveShow = true;
+          $scope.fstSection=true;
         }
+
+        $scope.warning=function(){
+          if($scope.saveShow == false) {
+            $('#warning-modal').modal('show');
+          }
+        }
+        $scope.unSave=function(){
+          $('#warning-modal').modal('hide');
+          $scope.details = angular.copy($scope.myDetails[$scope.parentIndex].data[$scope.index]);
+          $scope.fstSection=false;
+        }
+
+        $scope.close=function(){
+          $scope.details = {};
+          $scope.fstSection=true;
+          $scope.saveShow == true;
+        }
+
+        $scope.cancelWarning = function(){
+          $scope.fstSection=true;
+        }
+
+        $scope.ValidationCheck = function(){;
+          $scope.isChecked=true;
+          // if($scope.isChecked){
+          //   $scope.fstSection=true;
+          // }
+          // else{
+          //   $scope.fstSection=false;
+          // }
+        }
+
+        // $scope.value = function(frequency){
+        //   console.log(frequency);
+        //   if(frequency == "Other"){
+        //     $scope.display = true;
+        //   }
+        // }
     }
 })();

@@ -1,0 +1,16 @@
+<div class="modal fade" id="warning-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header modal-border-none">
+        <h4 class="modal-title">Warning</h4>
+      </div>
+      <div class="modal-body">
+        <p>They are unsaved changes.Continue and lose changes?</p>
+      </div>
+      <div class="modal-footer modal-border-none">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" ng-click=cancelWarning()>Cancel</button>
+        <button type="button" class="btn btn-primary" ng-click=unSave()>Okay</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
