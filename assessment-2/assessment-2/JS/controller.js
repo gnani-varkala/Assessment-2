@@ -20,6 +20,7 @@
         $scope.growthType = [];
         $scope.amountBasis = [];
         $scope.details = {};
+        $scope.saveShow = true;
         jsonService.paymentJson('JSON/jsons/c_paymentType.json').then(function(data) {
             paymentDetails = data;
 
@@ -129,12 +130,27 @@
         }
 
         $scope.delete = function(index){
-          $scope.myDetails.splice(index,1);
+          $scope.newIndex = index;
+          $('#new-modal').modal('show');
         }
-
-        $scope.edit=function(editDetails){
+        $scope.deleteConform = function(){
+          $scope.myDetails.splice($scope.newIndex,1);
+          $('#new-modal').modal('hide');
+        }
+        var x;
+        $scope.edit=function(editDetails,index){
+          $scope.saveShow = false;
           $('#gridSystemModal').modal('show');
           $scope.details = editDetails;
+          $scope.index= index
+        }
+
+        $scope.save =function(details){
+          var editedDetails = angular.copy(details);
+          $scope.myDetails[$scope.index] = editedDetails;
+          $('#gridSystemModal').modal('hide');
+
+          $scope.saveShow = false;
         }
     }
 })();
